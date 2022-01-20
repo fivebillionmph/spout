@@ -257,7 +257,10 @@ class CellValueFormatter
             $phpDateFormat = DateFormatHelper::toPHPDateFormat($styleNumberFormatCode);
             $cellValue = $dateObj->format($phpDateFormat);
         } else {
-            $cellValue = $dateObj;
+            $cellValue = array(
+                "date" => $cellValue = $dateObj,
+                "format" => $this->styleManager->getNumberFormatCode($cellStyleId),
+            );
         }
 
         return $cellValue;

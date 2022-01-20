@@ -296,6 +296,9 @@ class StyleManager
      */
     protected function isFormatCodeMatchingDateFormatPattern($formatCode)
     {
+        if ($formatCode == "0.00E+00") {
+            return false;
+        }
         // Remove extra formatting (what's between [ ], the brackets should not be preceded by a "\")
         $pattern = '((?<!\\\)\[.+?(?<!\\\)\])';
         $formatCode = \preg_replace($pattern, '', $formatCode);

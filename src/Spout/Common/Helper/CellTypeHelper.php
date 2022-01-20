@@ -60,6 +60,9 @@ class CellTypeHelper
      */
     public static function isDateTimeOrDateInterval($value)
     {
+        if (is_array($value) && isset($value["date"])) {
+            return static::isDateTimeOrDateInterval($value["date"]);
+        }
         return (
             $value instanceof \DateTime ||
             $value instanceof \DateInterval

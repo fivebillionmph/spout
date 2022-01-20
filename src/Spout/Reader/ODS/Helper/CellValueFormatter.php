@@ -74,6 +74,7 @@ class CellValueFormatter
 
         switch ($cellType) {
             case self::CELL_TYPE_STRING:
+            case self::CELL_TYPE_CURRENCY:
                 return $this->formatStringCellValue($node);
             case self::CELL_TYPE_FLOAT:
                 return $this->formatFloatCellValue($node);
@@ -83,8 +84,8 @@ class CellValueFormatter
                 return $this->formatDateCellValue($node);
             case self::CELL_TYPE_TIME:
                 return $this->formatTimeCellValue($node);
-            case self::CELL_TYPE_CURRENCY:
-                return $this->formatCurrencyCellValue($node);
+            //case self::CELL_TYPE_CURRENCY:
+            //    return $this->formatCurrencyCellValue($node);
             case self::CELL_TYPE_PERCENTAGE:
                 return $this->formatPercentageCellValue($node);
             case self::CELL_TYPE_VOID:
